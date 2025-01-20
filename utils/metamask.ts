@@ -13,7 +13,7 @@ export const connectMetaMask = async () => {
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
-    console.log("ACCOUNTS: ", accounts)
+    // // console.log("ACCOUNTS: ", accounts)
     return {
       account: accounts[0],
       isAvailable: true,
@@ -31,7 +31,7 @@ export const connectMetaMask = async () => {
 export const getAccountDetails = async () => {
   const account = await window.ethereum.request({ method: "eth_accounts" });
   const chainId = await window.ethereum.request({ method: "eth_chainId" });
-  console.log("Account:", account, "Chain ID:", chainId);
+  // // console.log("Account:", account, "Chain ID:", chainId);
 };
 
 export const sendEth = async ({
@@ -52,7 +52,7 @@ export const sendEth = async ({
     await window.ethereum.send("eth_requestAccounts");
     const provider = new ethers.BrowserProvider(window.ethereum);
     const signer = await provider.getSigner();
-    console.log("SIGNER?: ", signer);
+    // console.log("SIGNER?: ", signer);
     // Validate address before sending transaction
     try {
       ethers.getAddress(addr);
@@ -67,8 +67,8 @@ export const sendEth = async ({
     toast(`Transaction successful!`, {
       type: "success",
     });
-    console.log({ ether, addr });
-    // console.log("tx", tx);
+    // console.log({ ether, addr });
+    // // console.log("tx", tx);
     // setTxs([tx]);
   } catch (err: any) {
     if (err.message.includes("insufficient funds")) {

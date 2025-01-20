@@ -2,7 +2,6 @@ import {
   Connection,
   PublicKey,
   Transaction,
-  Keypair,
   SystemProgram,
 } from "@solana/web3.js";
 import { toast } from "react-toastify";
@@ -71,23 +70,23 @@ export const sendSol = async ({
         const signature = await connection.sendRawTransaction(
           signedTransaction.serialize()
         );
-        // console.log("Transaction signature:", signature);
+        // // console.log("Transaction signature:", signature);
 
         toast(`Transaction successful!`, {
           type: "success",
         });
-        // console.log("Transaction confirmed:", confirmation);
+        // // console.log("Transaction confirmed:", confirmation);
 
         return signature; // Return the transaction signature
       } catch (error) {
-        console.error("Error sending transaction:", error);
+        // console.error("Error sending transaction:", error);
         toast(`Error sending transaction`, {
           type: "error",
         });
       }
     })();
   } catch (error) {
-    console.error("Error sending transaction:", error);
+    // console.error("Error sending transaction:", error);
     toast(`Error sending transaction`, {
       type: "error",
     });

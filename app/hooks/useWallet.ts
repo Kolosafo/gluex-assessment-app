@@ -11,13 +11,14 @@ export enum AvailableWallets {
   METAMASK = "METAMASK",
   PETRA = "PETRA",
   PHANTOM = "PHANTOM",
-  KEPLR = "KEPLR",
+  // KEPLR = "KEPLR", /// KEPLR WILL NOT BE USED AS REQUIRES AN SDK (THIRD PARTY TO WORK PROPERLY)
 }
 
 interface IConnectionResponstType {
   account: string | null;
   isAvailable: boolean;
   error: null | string;
+  offlineSigner?: any;
 }
 const useWallet = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>();
@@ -26,15 +27,24 @@ const useWallet = () => {
     response: IConnectionResponstType,
     walletType: AvailableWallets
   ) => {
+    // console.log("RESPONSE: ", response);
     if (response.error) {
       toast(response.error, {
         type: "error",
       });
       return;
     }
+    // console.log("USER ADDRESS: ", response.account);
     dispatch(
-      connectGlobalWallet({ address: response.account, type: walletType })
+      connectGlobalWallet({
+        address: response.account,
+        type: walletType,
+        keplrOfflineSigner: response.offlineSigner,
+      })
     );
+    toast(`Wallet connected successfully!`, {
+      type: "success",
+    });
   };
   const handleConnectWallet = (wallet: AvailableWallets) => {
     switch (wallet) {
@@ -63,14 +73,14 @@ const useWallet = () => {
         return {
           wallet: AvailableWallets.PHANTOM,
         };
-      case AvailableWallets.KEPLR: // CONNECTING KEPLR WALLET
-        (async () => {
-          const connect = await connectKeplr();
-          handleResponse(connect, wallet);
-        })();
-        return {
-          wallet: AvailableWallets.KEPLR,
-        };
+      // case AvailableWallets.KEPLR: // CONNECTING KEPLR WALLET
+      //   (async () => {
+      //     const connect = await connectKeplr();
+      //     handleResponse(connect, wallet);
+      //   })();
+      //   return {
+      //     wallet: AvailableWallets.KEPLR,
+      //   };
       default:
         return null;
     }
