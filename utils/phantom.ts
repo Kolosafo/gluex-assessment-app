@@ -45,10 +45,6 @@ export const sendSol = async ({
       "confirmed"
     );
 
-    const payer = Keypair.generate();
-    // const secretKey = Uint8Array.from([userPrivateKey]); THIS IS FOR A REAL EXISTING USER PRIVATE KEY
-    // const payer = Keypair.fromSecretKey(secretKey); THIS IS FOR A REAL EXISTING USER PRIVATE KEY
-
     const recipientPublicKey = new PublicKey(recipient);
     const amount = _amount * 10 ** 9; // <_amount> SOL in lamports (<_amount> SOL = 10^9 lamports)
 
@@ -75,17 +71,12 @@ export const sendSol = async ({
         const signature = await connection.sendRawTransaction(
           signedTransaction.serialize()
         );
-        console.log("Transaction signature:", signature);
+        // console.log("Transaction signature:", signature);
 
-        // Confirm the transaction
-        const confirmation = await connection.confirmTransaction(
-          signature,
-          "confirmed"
-        );
         toast(`Transaction successful!`, {
           type: "success",
         });
-        console.log("Transaction confirmed:", confirmation);
+        // console.log("Transaction confirmed:", confirmation);
 
         return signature; // Return the transaction signature
       } catch (error) {
