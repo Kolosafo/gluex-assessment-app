@@ -1,6 +1,8 @@
 import { ethers } from "ethers";
 import { toast } from "react-toastify";
-
+interface window {
+  ethereum?: any;
+}
 export const connectMetaMask = async () => {
   if (typeof window.ethereum === "undefined") {
     return {
