@@ -22,7 +22,7 @@ const CustomButton = ({
     >
       <button
         type={btnType}
-        className={`font-epilogue font-semibold capitalize text-[16px] px-4 h-full w-[90%] leading-[26px] `}
+        className={`font-epilogue whitespace-nowrap font-semibold capitalize text-[16px] px-4 h-full w-[90%] leading-[26px] `}
         onClick={handleClick}
       >
         {title.toLowerCase()}

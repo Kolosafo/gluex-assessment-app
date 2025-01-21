@@ -143,7 +143,7 @@ const Navbar = () => {
                 btnType="button"
                 address={address ?? undefined}
                 title={"Connect Wallet"}
-                styles={address ? "bg-[#1dc071]" : "bg-[#8c6dfd]"}
+                styles={address ? "bg-[#1dc071] w-full" : "bg-[#8c6dfd] w-full"}
                 handleClick={() => {
                   if (walletType) {
                     connectWallet(walletType);
