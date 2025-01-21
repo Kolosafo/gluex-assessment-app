@@ -1,4 +1,4 @@
- GlueX Assessment Web App [`Live app`](https://dauda-gluex.vercel.app/).
+ GlueX Assignment Web App [`Live app`](https://dauda-gluex.vercel.app/).
 
 The Application's Documentation includes sections for features, implementation choices, challenges faced and how I addressed them.
 ---
