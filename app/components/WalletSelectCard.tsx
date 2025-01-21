@@ -15,9 +15,11 @@ const WalletSelectCard = ({
   color: string;
   type: AvailableWallets;
 }) => {
+  console.log("COLOR: ", color);
   return (
     <div
       onClick={() => onClick(type)}
+      style={{ backgroundColor: color }}
       className={`flex cursor-pointer bg-[${color}] flex-row md:w-[70%] w-full rounded-md px-10 p-4 justify-evenly items-center`}
     >
       <Image
