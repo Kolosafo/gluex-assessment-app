@@ -18,7 +18,7 @@ The Application's Documentation includes sections for features, implementation c
 ---
 
 ## **Overview**
-> This Next.js application is built for GlueX Intern assessment for me
+> This Next.js application is my Gluex assignment submission
 > This app allows users to send crypto tokens from accounts of different ecosystems such as: EVM (Metamask), APTOS - Petra Wallet, Solana - Phantom Wallet
 
 ---
