@@ -3,9 +3,11 @@ import { useState } from "react";
 import { AvailableWallets } from "./hooks/useWallet";
 import ChooseWalletModal from "./components/ChooseWalletModal";
 import SendTransactionForm from "./components/SendTransactionForm";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { IRootState } from "@/redux/store";
 import useSendTransaction from "./hooks/useSendTransaction";
+import { ThunkDispatch } from "@reduxjs/toolkit";
+import Hero from "./components/landing/hero";
 
 export default function Home() {
   const { walletType, address } = useSelector(
@@ -34,18 +36,23 @@ export default function Home() {
         isOpen={isChooseModalOpen}
         onClose={handleCloseModal}
       />
-      <SendTransactionForm
-        currency={
-          walletType === AvailableWallets.METAMASK
-            ? "ETH"
-            : walletType === AvailableWallets.PETRA
-            ? "APTOS"
-            : "SOL"
-        }
-        error={error}
-        txs={txs}
-        handleSubmit={handleSend}
-      />
+
+      {!address ? (
+        <Hero />
+      ) : (
+        <SendTransactionForm
+          currency={
+            walletType === AvailableWallets.METAMASK
+              ? "ETH"
+              : walletType === AvailableWallets.PETRA
+              ? "APTOS"
+              : "SOL"
+          }
+          error={error}
+          txs={txs}
+          handleSubmit={handleSend}
+        />
+      )}
     </main>
   );
 }

@@ -28,12 +28,6 @@ export const connectMetaMask = async () => {
   }
 };
 
-export const getAccountDetails = async () => {
-  const account = await window.ethereum.request({ method: "eth_accounts" });
-  const chainId = await window.ethereum.request({ method: "eth_chainId" });
-  // // console.log("Account:", account, "Chain ID:", chainId);
-};
-
 export const sendEth = async ({
   setError,
   setTxs,
@@ -70,6 +64,7 @@ export const sendEth = async ({
     // console.log({ ether, addr });
     // // console.log("tx", tx);
     // setTxs([tx]);
+    return true;
   } catch (err: any) {
     if (err.message.includes("insufficient funds")) {
       toast(`insufficient funds`, {
@@ -81,5 +76,6 @@ export const sendEth = async ({
     toast(err.msg, {
       type: "error",
     });
+    return false;
   }
 };

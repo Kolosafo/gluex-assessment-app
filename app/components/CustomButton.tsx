@@ -6,17 +6,19 @@ const CustomButton = ({
   title,
   handleClick,
   styles,
-  onDropdownClick
+  onDropdownClick,
+  address,
 }: {
   btnType: any;
   title: string;
   handleClick?: () => void;
   styles: string;
   onDropdownClick: () => void;
+  address?: string;
 }) => {
   return (
     <div
-      className={`flex flex-row items-center relative text-white min-h-[52px] pr-7 rounded-[10px] ${styles}`}
+      className={`flex flex-row items-center relative text-white min-h-[52px] ${!address && "pr-7"} rounded-[10px] ${styles}`}
     >
       <button
         type={btnType}
@@ -25,7 +27,13 @@ const CustomButton = ({
       >
         {title.toLowerCase()}
       </button>
-      <IoChevronDownCircleOutline onClick={onDropdownClick} className="p-2 z-10 cursor-pointer absolute top-[5px] right-0" size={40} />
+      {!address && (
+        <IoChevronDownCircleOutline
+          onClick={onDropdownClick}
+          className="p-2 z-10 cursor-pointer absolute top-[5px] right-0"
+          size={40}
+        />
+      )}
     </div>
   );
 };

@@ -15,7 +15,7 @@ const SendTransactionForm = ({
   currency: string;
 }) => {
   return (
-    <form className="m-4 w-full" onSubmit={handleSubmit}>
+    <form className="m-4 md:w-[60%] w-full" onSubmit={handleSubmit}>
       <div className="py-6 shadow-lg rounded-xl bg-white">
         <main className="mt-4 p-4">
           <h1 className="text-xl font-semibold text-gray-700 text-center">
@@ -47,9 +47,9 @@ const SendTransactionForm = ({
         <footer className="p-4">
           <button
             type="submit"
-            className="bg-purple-500 p-2 rounded-md focus:ring focus:outline-none w-full"
+            className="bg-purple-500 p-2 rounded-md text-lg font-semibold text-white focus:ring focus:outline-none w-full"
           >
-            Pay now
+            Send
           </button>
           <ErrorMessage message={error} />
           <TxList txs={txs} />

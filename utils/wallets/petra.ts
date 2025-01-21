@@ -56,10 +56,12 @@ export const sendPetraTransaction = async ({
     toast("Transaction successful!", {
       type: "success",
     });
+    return true;
   } catch (error) {
     console.error("Error sending transaction:", error);
     toast(`${error}`, {
       type: "error",
     });
+    return false;
   }
 };

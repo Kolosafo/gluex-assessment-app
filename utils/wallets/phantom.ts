@@ -85,10 +85,12 @@ export const sendSol = async ({
         });
       }
     })();
+    return true;
   } catch (error) {
     // console.error("Error sending transaction:", error);
     toast(`Error sending transaction`, {
       type: "error",
     });
+    return false;
   }
 };

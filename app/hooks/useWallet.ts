@@ -1,8 +1,8 @@
 import { connectGlobalWallet } from "@/redux/wallet/walletSlice";
-import { connectKeplr } from "@/utils/keplr";
-import { connectMetaMask } from "@/utils/metamask";
-import { connectPetra } from "@/utils/petra";
-import { connectPhantom } from "@/utils/phantom";
+import { connectKeplr } from "@/utils/wallets/keplr";
+import { connectMetaMask } from "@/utils/wallets/metamask";
+import { connectPetra } from "@/utils/wallets/petra";
+import { connectPhantom } from "@/utils/wallets/phantom";
 import { ThunkDispatch } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
