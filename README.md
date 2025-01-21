@@ -3,7 +3,7 @@
 The Application's Documentation includes sections for features, implementation choices, challenges faced and how I addressed them.
 ---
 
-# **Next.js Application Documentation**
+# **Application Documentation**
 
 ## **Table of Contents**
 1. [Overview](#overview)  
