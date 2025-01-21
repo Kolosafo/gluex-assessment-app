@@ -19,6 +19,7 @@ The Application's Documentation includes sections for features, implementation c
 
 ## **Overview**
 > This Next.js application is my Gluex assignment submission
+---
 > This app allows users to send crypto tokens from accounts of different ecosystems such as: EVM (Metamask), APTOS - Petra Wallet, Solana - Phantom Wallet
 
 ---
@@ -37,7 +38,7 @@ The Application's Documentation includes sections for features, implementation c
 
 ## **Technology Stack**
 - **Frontend**: Next.js, Tailwind CSS  
-- **CORE Blockchain Libraries**: ethers.js, @solana/web3.js, etc.  
+- **CORE Blockchain Libraries**: ethers.js & @solana/web3.js  
 - **Hosting**: Vercel
 
 - **Other Tools**: Redux for state management
